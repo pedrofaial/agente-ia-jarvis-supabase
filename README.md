@@ -1,4 +1,4 @@
-# 🏗️ Agente IA para Gestão de Obras
+# 🏗️ Agente IA Jarvis + Supabase
 
 Sistema inteligente de gestão de obras da construção civil com interface de chat em linguagem natural, desenvolvido com as melhores práticas de segurança e escalabilidade.
 
@@ -37,8 +37,8 @@ Sistema inteligente de gestão de obras da construção civil com interface de c
 ### 1. Clone o Repositório
 
 ```bash
-git clone https://github.com/seu-usuario/agente-ia-gestao-obras.git
-cd agente-ia-gestao-obras
+git clone https://github.com/pedrofaial/agente-ia-jarvis-supabase.git
+cd agente-ia-jarvis-supabase
 ```
 
 ### 2. Configure as Variáveis de Ambiente
@@ -65,7 +65,8 @@ pip install -r requirements.txt
 ```
 
 **Frontend:**
-```bashcd frontend
+```bash
+cd frontend
 npm install
 ```
 
@@ -107,3 +108,72 @@ POST /api/auth/login
 Content-Type: application/json
 
 {
+  "email": "usuario@exemplo.com",
+  "password": "senha123"
+}
+```
+
+### Chat
+
+```http
+POST /api/chat
+Authorization: Bearer {token}
+Content-Type: application/json
+
+{
+  "message": "Mostre minhas obras ativas",
+  "context": {
+    "obra_id": "uuid-opcional",
+    "openrouter_key": "sk-or-v1-..."
+  }
+}
+```
+
+## 🗄️ Estrutura do Banco de Dados
+
+### Tabelas Principais:
+
+- **obras**: Informações gerais das obras
+- **lancamentos_financeiros**: Registros financeiros
+- **itens_orcamento**: Detalhes do orçamento
+- **fases_obra**: Fases de cada obra
+- **tipos_insumo**: Tipos de materiais/serviços
+- **fornecedores**: Cadastro de fornecedores
+
+Todas as tabelas implementam RLS (Row Level Security) para garantir isolamento de dados por usuário.
+
+## 🛡️ Segurança
+
+- **RLS (Row Level Security)**: Isolamento de dados por usuário
+- **JWT**: Autenticação stateless
+- **Validação de SQL**: Proteção contra injeção
+- **Rate Limiting**: Proteção contra abuso
+- **CORS**: Configurado para produção
+
+## 📈 Monitoramento
+
+- **Prometheus**: Coleta de métricas
+- **Grafana**: Visualização de dashboards
+- **Logs estruturados**: JSON com níveis configuráveis
+
+## 🤝 Contribuindo
+
+1. Fork o projeto
+2. Crie sua Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a Branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
+
+## 📝 Licença
+
+Este projeto está licenciado sob a MIT License - veja o arquivo [LICENSE](LICENSE) para detalhes.
+
+## 👥 Autores
+
+- **Pedro Faial** - *Desenvolvimento inicial* - [pedrofaial](https://github.com/pedrofaial)
+
+## 🙏 Agradecimentos
+
+- Equipe Supabase pela excelente plataforma
+- OpenRouter pela integração com múltiplos LLMs
+- Comunidade open source pelos frameworks utilizados
