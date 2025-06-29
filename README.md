@@ -144,11 +144,19 @@ Todas as tabelas implementam RLS (Row Level Security) para garantir isolamento d
 
 ## 🛡️ Segurança
 
+### Implementação Atual (Fase 1 - MVP)
 - **RLS (Row Level Security)**: Isolamento de dados por usuário
-- **JWT**: Autenticação stateless
-- **Validação de SQL**: Proteção contra injeção
-- **Rate Limiting**: Proteção contra abuso
-- **CORS**: Configurado para produção
+- **JWT do Supabase**: Autenticação gerenciada
+- **HTTPS**: Obrigatório em todas as comunicações
+- **Validação básica**: Proteção contra injeções
+
+### Roadmap de Segurança
+Estamos seguindo uma estratégia evolutiva de segurança:
+- **Fase 1 (Atual)**: Autenticação Supabase básica ✅
+- **Fase 2**: Sistema híbrido com cache e rate limiting 🔄
+- **Fase 3**: Segurança enterprise com 2FA e auditoria completa 📅
+
+📄 **[Ver estratégia completa de segurança](docs/SECURITY_STRATEGY.md)**
 
 ## 📈 Monitoramento
 
